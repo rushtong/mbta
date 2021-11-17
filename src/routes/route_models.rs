@@ -2,6 +2,47 @@ use std::fmt;
 
 use serde::Deserialize;
 
+/// Models for the response data as defined by the routes API:
+/// https://api-v3.mbta.com/docs/swagger/index.html#/Route/ApiWeb_RouteController_index
+/// 
+/// curl -X GET "https://api-v3.mbta.com/routes?filter[type]=0,1" -H "accept: application/vnd.api+json" | jq  
+/// {
+///   "data": [
+///     {
+///       "attributes": {
+///         "color": "DA291C",
+///         "description": "Rapid Transit",
+///         "direction_destinations": [
+///           "Ashmont/Braintree",
+///           "Alewife"
+///         ],
+///         "direction_names": [
+///           "South",
+///           "North"
+///         ],
+///         "fare_class": "Rapid Transit",
+///         "long_name": "Red Line",
+///         "short_name": "",
+///         "sort_order": 10010,
+///         "text_color": "FFFFFF",
+///         "type": 1
+///       },
+///       "id": "Red",
+///       "links": {
+///         "self": "/routes/Red"
+///       },
+///       "relationships": {
+///         "line": {
+///           "data": {
+///             "id": "line-Red",
+///             "type": "line"
+///           }
+///         }
+///       },
+///       "type": "route"
+///     },
+/// etc.
+
 #[derive(Deserialize, Debug)]
 pub struct Routes {
     pub data: Vec<Data>,
