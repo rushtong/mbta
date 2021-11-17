@@ -4,8 +4,8 @@ use reqwest::header::ACCEPT;
 use reqwest::header::HeaderMap;
 use reqwest::StatusCode;
 
-use route_models::Routes;
-use stop_models::Stops;
+pub use self::route_models::Routes;
+pub use self::stop_models::Stops;
 
 mod route_models;
 mod stop_models;
