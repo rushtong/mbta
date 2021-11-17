@@ -1,5 +1,5 @@
 .idea/
 target/
+temp/
 Cargo.lock
 /config.yaml
-/temp/
