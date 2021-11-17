@@ -8,7 +8,7 @@ fn main() -> () {
     let api_key: String = config.api_key;
 
     println!("Listing Routes");
-    let routes = routes::query_routes(true, Some(api_key.clone()));
+    let routes = routes::query_routes(false, Some(api_key.clone()));
     routes.unwrap().data.iter().for_each(|data| {
         println!("{}", data)
     });
